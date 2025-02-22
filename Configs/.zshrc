@@ -10,5 +10,19 @@
 #  Aliases 
 # Add aliases here
 
+alias cat=bat
+
+if [[ -x "$(which eza)" ]]; then
+alias ls='eza' \
+    l='eza -lh --icons=auto' \
+    ll='eza -lha --icons=auto --sort=name --group-directories-first' \
+    ld='eza -lhD --icons=auto' \
+    lt='eza --icons=auto --tree'
+fi
+
 #  This is your file 
 # Add your configurations here
+
+# ZOXIDE
+
+eval "$(zoxide init zsh)"
