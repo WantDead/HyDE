@@ -4,11 +4,12 @@
 # 1. ~/.hyde.zshrc - for customizing the shell related hyde configurations
 # 2. ~/.zshenv - for updating the zsh environment variables handled by HyDE // this will be modified across updates
 
-#  Plugins 
+#####   Plugins  ##### 
+
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
 
-#  Aliases 
-# Add aliases here
+#####   Aliases  ##### 
+#####  Add aliases here ##### 
 
 alias cat=bat
 
@@ -21,8 +22,14 @@ alias ls='eza' \
 fi
 
 #  This is your file 
-# Add your configurations here
+##### Add your configurations here #####
 
 # ZOXIDE
 
 eval "$(zoxide init zsh)"
+
+# TMUX
+
+if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
+    tmux new-session -c $PWD
+fi
