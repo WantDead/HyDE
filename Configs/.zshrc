@@ -33,3 +33,17 @@ eval "$(zoxide init zsh)"
 if command -v tmux &> /dev/null && [[ -z "$TMUX" ]]; then
     tmux new-session -c $PWD
 fi
+
+# FZF
+
+eval "$(fzf --zsh)"
+
+alias fzf="fzf | xargs -o nvim"
+
+
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && nvim "${files[@]}"
+}
+
