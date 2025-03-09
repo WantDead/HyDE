@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HTTPS_PROXY=http://localhost:12334
+export HTTPS_PROXY=http://localhost:12334
 
 # Check release
 if [ ! -f /etc/arch-release ] ; then
