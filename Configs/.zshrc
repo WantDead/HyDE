@@ -13,6 +13,7 @@
 
 alias cat=bat
 
+# fix non-working script
 if [[ -x "$(which eza)" ]]; then
 alias ls='eza' \
     l='eza -lh --icons=auto' \
@@ -21,9 +22,22 @@ alias ls='eza' \
     lt='eza --icons=auto --tree'
 fi
 
-if [[ -z $(curl localhost:12334) ]]; then
-  alias yay='HTTPS_PROXY=http://localhost:12334 yay'
-fi
+# Define your proxy
+PROXY_URL="http://localhost:12334"
+
+# Function to check if the proxy is active
+is_proxy_active() {
+    curl -s --proxy "$PROXY_URL" --head https://aur.archlinux.org/ | grep -q "200 Connection established"
+}
+
+# Function to run yay with proxy if available
+yay() {
+    if is_proxy_active; then
+        HTTPS_PROXY="$PROXY_URL" command yay "$@"
+    else
+        command yay "$@"
+    fi
+}
 
 #  This is your file 
 ##### Add your configurations here #####
