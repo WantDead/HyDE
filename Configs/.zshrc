@@ -21,6 +21,10 @@ alias ls='eza' \
     lt='eza --icons=auto --tree'
 fi
 
+if [[ -z $(curl localhost:12334) ]]; then
+  alias yay='HTTPS_PROXY=http://localhost:12334 yay'
+fi
+
 #  This is your file 
 ##### Add your configurations here #####
 
