@@ -13,6 +13,12 @@
 
 alias cat=bat
 
+#VPN
+alias vpn-con="openvpn3 session-start --config WB"
+alias vpn-recon="openvpn3 session-manage --config WB --restart"
+alias vpn-list="openvpn3 sessions-list"
+alias vpn-discon="openvpn3 session-manage --config WB --disconnect"
+
 # fix non-working script
 if [[ -x "$(which eza)" ]]; then
 alias ls='eza' \
