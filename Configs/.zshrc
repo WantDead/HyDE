@@ -71,3 +71,5 @@ fe() {
   [[ -n "$files" ]] && nvim "${files[@]}"
 }
 
+# export EDITOR=nvim
+export EDITOR=code
