@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export HTTPS_PROXY=http://localhost:12334
+
 # Check release
 if [ ! -f /etc/arch-release ] ; then
     exit 0

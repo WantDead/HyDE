@@ -45,6 +45,7 @@ fi
 # manually add your oh-my-zsh plugins here
 plugins=(
     "sudo"
+    "tmux"
     # "git"                     # (default)
     # "zsh-autosuggestions"     # (default)
     # "zsh-syntax-highlighting" # (default)
